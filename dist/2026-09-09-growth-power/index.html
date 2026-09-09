@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6d9cd">
+  <meta name="description" content="憑直覺選一扇門，看看你現在最需要的成長力量">
+  <title>柔柔｜你的成長力量</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main>
+    <header class="intro" aria-labelledby="page-title">
+      <div class="intro-copy">
+        <p class="eyebrow">自我成長 · 心理測驗</p>
+        <h1 id="page-title">憑直覺選一扇門<br><span>看看你現在最需要的成長力量</span></h1>
+        <p class="lede">不用想太久<br>第一眼最想走進哪一扇，就選它</p>
+        <div class="byline" aria-label="關於柔柔">
+          <strong>Hi，我是柔柔</strong>
+          <span>我想陪你把那些沒說出口的感受，慢慢聽懂</span>
+        </div>
+      </div>
+      <figure class="intro-art">
+        <img src="./images/quiz-overview.png" alt="柔柔和白色小狗站在四扇童話門前">
+      </figure>
+    </header>
+
+    <section class="quiz" aria-labelledby="quiz-title">
+      <div class="section-heading">
+        <p class="step">01 · 憑直覺選擇</p>
+        <h2 id="quiz-title">哪一扇門先讓你停下來</h2>
+        <p>點一下就能看到解析，不需要留下任何資料</p>
+      </div>
+      <div id="choices" class="choices" aria-label="四扇門選項"></div>
+      <p id="status" class="sr-only" aria-live="polite"></p>
+    </section>
+
+    <section id="result" class="result" aria-labelledby="result-title" hidden>
+      <p class="step">02 · 給你的成長提醒</p>
+      <div class="result-layout">
+        <img id="result-image" src="" alt="">
+        <article>
+          <p id="result-kicker" class="result-kicker"></p>
+          <h2 id="result-title"></h2>
+          <p id="result-summary" class="result-summary"></p>
+          <div class="insight-grid">
+            <section>
+              <h3>你最近可能有點像這樣</h3>
+              <p id="result-state"></p>
+            </section>
+            <section>
+              <h3>你容易卡住的地方</h3>
+              <p id="result-block"></p>
+            </section>
+            <section class="practice">
+              <h3>今天可以做的小練習</h3>
+              <p id="result-practice"></p>
+            </section>
+          </div>
+          <blockquote id="result-quote"></blockquote>
+          <button id="reset" class="secondary" type="button">換一扇門看看</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <p class="step">柔柔想跟你說</p>
+      <h2 id="closing-title">你一直都知道自己需要什麼</h2>
+      <p>有時只差一個安靜的瞬間<br>讓那個答案被你好好聽見</p>
+    </section>
+  </main>
+  <footer>
+    <p>本測驗為娛樂與自我探索用途，不代表醫療或心理診斷</p>
+    <p>柔柔 · 2026</p>
+  </footer>
+  <script src="./quiz-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
