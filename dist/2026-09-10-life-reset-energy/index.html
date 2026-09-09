@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#6f3f32">
+  <meta name="description" content="憑直覺選出最想整理的地方，看看你現在最需要修復的生活能量">
+  <title>柔柔｜你現在最需要修復的生活能量</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main>
+    <header class="intro" aria-labelledby="page-title">
+      <div class="intro-copy">
+        <p class="eyebrow">生活整理 · 心理測驗</p>
+        <h1 id="page-title">生活亂成一團時<br><span>先從一件事開始</span></h1>
+        <p class="lede">不用想太久<br>第一眼最想整理哪一樣，就選它</p>
+        <a class="start" href="#quiz">開始測驗</a>
+      </div>
+    </header>
+
+    <section id="quiz" class="quiz" aria-labelledby="quiz-title">
+      <div class="quiz-lead">
+        <div>
+          <p class="step">01 · 憑第一眼選擇</p>
+          <h2 id="quiz-title">如果今天只能整理一樣<br>你會先整理哪個</h2>
+          <p>點一下，就能看到屬於你的完整解析</p>
+        </div>
+      </div>
+      <div id="choices" class="choices" aria-label="四個生活整理選項"></div>
+      <p id="status" class="sr-only" aria-live="polite"></p>
+    </section>
+
+    <section id="result" class="result" aria-labelledby="result-title" hidden>
+      <p class="step">02 · 柔柔給你的解析</p>
+      <div class="result-layout">
+        <div id="result-symbol" class="result-symbol" aria-hidden="true"></div>
+        <article>
+          <p id="result-kicker" class="result-kicker"></p>
+          <h2 id="result-title"></h2>
+          <p id="result-summary" class="result-summary"></p>
+          <div class="insight-grid">
+            <section>
+              <h3><span aria-hidden="true">✦</span> 你最近可能有點像這樣</h3>
+              <p id="result-state"></p>
+            </section>
+            <section>
+              <h3><span aria-hidden="true">☁</span> 你真正需要整理的</h3>
+              <p id="result-block"></p>
+            </section>
+            <section class="practice">
+              <h3><span aria-hidden="true">♡</span> 今天先做這件小事</h3>
+              <p id="result-practice"></p>
+            </section>
+          </div>
+          <blockquote id="result-quote"></blockquote>
+          <button id="reset" class="secondary" type="button">換一個選項看看</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <p class="closing-label">柔柔想跟你說</p>
+      <h2 id="closing-title">你不用今天就把一切變好</h2>
+      <p>先把最讓你累的那一件放下<br>剩下的，我們慢慢來</p>
+    </section>
+  </main>
+  <footer>
+    <p>本測驗為娛樂與自我探索用途，不代表醫療或心理診斷</p>
+    <p>柔柔 · 2026</p>
+  </footer>
+  <script src="./quiz-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
