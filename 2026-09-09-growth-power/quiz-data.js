@@ -3,7 +3,7 @@ window.QUIZ_DATA = {
     {
       id: "A",
       label: "晨光木門",
-      image: "./images/door-a.png",
+      image: "./images/door-a-clean.png",
       imageAlt: "晨光照亮的溫暖木門",
       kicker: "你選的是晨光木門",
       title: "你現在需要的成長力量，是勇氣",
@@ -16,7 +16,7 @@ window.QUIZ_DATA = {
     {
       id: "B",
       label: "花藤玻璃門",
-      image: "./images/door-b.png",
+      image: "./images/door-b-clean.png",
       imageAlt: "粉色花藤環繞的玻璃門",
       kicker: "你選的是花藤玻璃門",
       title: "你現在需要的成長力量，是界線",
