@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4e6d7">
+  <meta name="description" content="憑直覺選一份禮物，看看你現在最需要補回的成長力量">
+  <title>柔柔｜你現在最需要的成長力量</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main>
+    <section class="quiz-shell" aria-labelledby="page-title">
+      <header class="intro">
+        <p class="eyebrow">人生成長 · 直覺測驗</p>
+        <h1 id="page-title">如果人生送你一份禮物<br><span>第一眼，你最想拿起哪一樣</span></h1>
+        <p class="lede">不用想太久，跟著第一眼的感覺選擇<br>看看你現在最需要補回哪一種成長力量</p>
+        <div class="soft-rule" aria-hidden="true"><span>✦</span></div>
+      </header>
+
+      <div class="quiz-heading">
+        <p class="step">01 · 憑直覺選擇</p>
+        <h2>哪一份禮物先讓你停下來</h2>
+        <p>點選圖片，就會出現屬於你的完整解析</p>
+      </div>
+      <div id="choices" class="choices" aria-label="四份人生禮物選項"></div>
+      <p id="status" class="sr-only" aria-live="polite"></p>
+    </section>
+
+    <section id="result" class="result" aria-labelledby="result-title" hidden>
+      <div class="result-heading">
+        <p class="step">02 · 柔柔給你的解析</p>
+        <span id="result-symbol" class="result-symbol" aria-hidden="true"></span>
+      </div>
+      <div class="result-layout">
+        <figure class="result-art">
+          <img id="result-image" src="" alt="">
+        </figure>
+        <article>
+          <p id="result-kicker" class="result-kicker"></p>
+          <h2 id="result-title"></h2>
+          <p id="result-summary" class="result-summary"></p>
+          <div class="insight-grid">
+            <section>
+              <h3><span aria-hidden="true">✦</span> 你最近可能有點像這樣</h3>
+              <p id="result-state"></p>
+            </section>
+            <section>
+              <h3><span aria-hidden="true">⌁</span> 讓你停在原地的原因</h3>
+              <p id="result-block"></p>
+            </section>
+            <section class="practice">
+              <h3><span aria-hidden="true">♡</span> 今天可以做的小練習</h3>
+              <p id="result-practice"></p>
+            </section>
+          </div>
+          <blockquote id="result-quote"></blockquote>
+          <button id="reset" class="secondary" type="button">換一份禮物看看</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <p class="closing-label">柔柔想跟你說</p>
+      <h2 id="closing-title">你現在需要的力量<br>其實一直都在你心裡</h2>
+      <p>這份測驗只是替你把它輕輕指出來<br>接下來，照自己的步調慢慢往前就好</p>
+    </section>
+  </main>
+  <footer>
+    <p>本測驗為娛樂與自我探索用途，不代表醫療或心理診斷</p>
+    <p>柔柔 · 2026</p>
+  </footer>
+  <script src="./quiz-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
