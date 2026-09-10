@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#202a3c">
+  <meta name="description" content="從吵架後最希望對方做的事，看看你在感情裡最需要哪一種安全感">
+  <title>柔柔｜你在感情裡最需要的安全感</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main>
+    <section class="quiz-shell" aria-labelledby="page-title">
+      <header class="intro">
+        <p class="eyebrow">感情關係 · 直覺測驗</p>
+        <h1 id="page-title">吵架以後<br><span>哪一件事最能讓你安心</span></h1>
+        <p class="lede">不用分析哪個答案比較好<br>憑第一眼，選出你最希望對方做的事</p>
+        <div class="soft-rule" aria-hidden="true"><span>♡</span></div>
+      </header>
+      <div class="quiz-heading">
+        <p class="step">01 · 憑直覺選擇</p>
+        <h2>哪一個畫面，最能接住吵架後的你</h2>
+        <p>點選圖片，就會出現屬於你的完整解析</p>
+      </div>
+      <div id="choices" class="choices" aria-label="四種吵架後的安慰方式"></div>
+      <p id="status" class="sr-only" aria-live="polite"></p>
+    </section>
+    <section id="result" class="result" aria-labelledby="result-title" hidden>
+      <div class="result-heading">
+        <p class="step">02 · 柔柔給你的解析</p>
+        <span id="result-symbol" class="result-symbol" aria-hidden="true"></span>
+      </div>
+      <div class="result-layout">
+        <figure class="result-art"><img id="result-image" src="" alt=""></figure>
+        <article>
+          <p id="result-kicker" class="result-kicker"></p>
+          <h2 id="result-title"></h2>
+          <p id="result-summary" class="result-summary"></p>
+          <div class="insight-grid">
+            <section><h3><span aria-hidden="true">♡</span> 你在感情裡的需要</h3><p id="result-state"></p></section>
+            <section><h3><span aria-hidden="true">⌁</span> 你容易受傷的時刻</h3><p id="result-block"></p></section>
+            <section class="practice"><h3><span aria-hidden="true">✦</span> 讓關係更靠近的小練習</h3><p id="result-practice"></p></section>
+          </div>
+          <blockquote id="result-quote"></blockquote>
+          <button id="reset" class="secondary" type="button">換一個選項看看</button>
+        </article>
+      </div>
+    </section>
+    <section class="closing" aria-labelledby="closing-title">
+      <p class="closing-label">柔柔想跟你說</p>
+      <h2 id="closing-title">安全感可以被說出來<br>也可以一起慢慢建立</h2>
+      <p>你不需要假裝什麼都沒事<br>願意理解彼此，關係才會越走越靠近</p>
+    </section>
+  </main>
+  <footer><p>本測驗為娛樂與自我探索用途，不代表醫療或心理診斷</p><p>柔柔 · 2026</p></footer>
+  <script src="./quiz-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
