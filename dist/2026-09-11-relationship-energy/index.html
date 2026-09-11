@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4eee5">
+  <meta name="description" content="下班回家後，你最想先得到哪一種陪伴，憑直覺選一個看看你最近最需要的關係能量">
+  <title>柔柔｜你最近最需要的陪伴</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23f4eee5'/%3E%3Cpath d='M32 49S13 39 13 25c0-9 11-12 19-3 8-9 19-6 19 3 0 14-19 24-19 24Z' fill='%23c47f72'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main>
+    <section class="quiz-shell" aria-labelledby="page-title">
+      <header class="intro">
+        <p class="eyebrow">親密關係 · 直覺測驗</p>
+        <h1 id="page-title">忙碌了一天回到家<br><span>你最想先得到哪一種陪伴</span></h1>
+        <p class="lede">不用想哪個答案比較好<br>第一眼最想走進哪個畫面，就選它</p>
+        <div class="soft-rule" aria-hidden="true"><span>♡</span></div>
+      </header>
+      <div class="quiz-heading">
+        <p class="step">01 · 憑直覺選擇</p>
+        <h2>哪一種陪伴，最能接住疲憊的你</h2>
+        <p>點選圖片，就會出現屬於你的完整解析</p>
+      </div>
+      <div id="choices" class="choices" aria-label="四種下班後的陪伴方式"></div>
+      <p id="status" class="sr-only" aria-live="polite"></p>
+    </section>
+    <section id="result" class="result" aria-labelledby="result-title" hidden>
+      <div class="result-heading">
+        <p class="step">02 · 給你的關係解析</p>
+        <span id="result-symbol" class="result-symbol" aria-hidden="true"></span>
+      </div>
+      <div class="result-layout">
+        <figure class="result-art"><img id="result-image" src="" alt=""></figure>
+        <article>
+          <p id="result-kicker" class="result-kicker"></p>
+          <h2 id="result-title"></h2>
+          <p id="result-summary" class="result-summary"></p>
+          <div class="insight-grid">
+            <section><h3><span aria-hidden="true">♡</span> 你最近的內在狀態</h3><p id="result-state"></p></section>
+            <section><h3><span aria-hidden="true">⌁</span> 關係裡容易卡住的地方</h3><p id="result-block"></p></section>
+            <section class="practice"><h3><span aria-hidden="true">✦</span> 讓彼此慢慢靠近的小練習</h3><p id="result-practice"></p></section>
+          </div>
+          <blockquote id="result-quote"></blockquote>
+          <button id="reset" class="secondary" type="button">換一個選項看看</button>
+        </article>
+      </div>
+    </section>
+    <section class="closing" aria-labelledby="closing-title">
+      <p class="closing-label">想把力氣留給重要的人</p>
+      <h2 id="closing-title">先照顧每天的精神<br>再慢慢找回靠近彼此的餘裕</h2>
+      <p>最近總是提不起精神<br>和另一半的擁抱、聊天與親密時光也越來越少了嗎</p>
+      <p>如果你也想替日常多留一點心力<br>陪伴身邊那個重要的人<br>可以一起從休息、飲食和生活節奏開始照顧自己</p>
+      <p>如果你也想替忙碌的日常補充元氣<br>為自己多留一點精神與體力<br>也多一點心力，好好陪伴另一半<br>可以從下方的日常保健補給開始</p>
+      <a class="product-link" href="https://hannah.bvshop.tw/one/pureluck_%EF%BC%AD?rstrk=pureluck004" target="_blank" rel="noopener noreferrer" aria-label="為自己選一份日常元氣補給，在新視窗開啟">為自己選一份日常元氣補給</a>
+    </section>
+  </main>
+  <footer><p>本測驗為娛樂與自我探索用途，不代表醫療、心理或伴侶諮商建議</p><p>柔柔 · 2026</p></footer>
+  <script src="./quiz-data.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
