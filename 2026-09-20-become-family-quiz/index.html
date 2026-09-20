@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#edf0f4">
+  <title>柔柔｜你們之間還剩下什麼</title>
+  <meta name="description" content="從一則晚回家的訊息，看見妳在長期關係裡真正的感受。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23536f94'/%3E%3Cpath d='M18 18h28v20H31l-9 8v-8h-4z' fill='%23f8f4ee'/%3E%3C/svg%3E">
+  <style>
+    :root{--ink:#262b33;--muted:#66707d;--blue:#536f94;--blue-dark:#3d587b;--blue-soft:#e2e8f0;--paper:#fbfaf7;--page:#edf0f4;--line:#d8dde4;--warm:#f2e6da;--shadow:0 20px 55px rgba(43,55,72,.12)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 8% 2%,rgba(104,130,165,.16),transparent 25rem),radial-gradient(circle at 95% 33%,rgba(205,179,157,.16),transparent 28rem),var(--page);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.8}
+    button{font:inherit}.page{width:min(920px,calc(100% - 28px));margin:auto;padding:24px 0 60px}.brand{display:flex;justify-content:space-between;align-items:center;margin:0 7px 16px;color:var(--blue-dark);font-weight:800;letter-spacing:.12em}.brand small{color:var(--muted);font-size:.78rem;letter-spacing:.08em}
+    .hero{overflow:hidden;border:1px solid rgba(83,111,148,.18);border-radius:32px;background:rgba(251,250,247,.94);box-shadow:var(--shadow)}.intro{padding:45px 44px 30px;text-align:center}.eyebrow{margin:0 0 9px;color:var(--blue);font-size:.86rem;font-weight:900;letter-spacing:.18em}.intro h1{max-width:700px;margin:0 auto;font-family:Georgia,"Noto Serif TC","Songti TC",serif;font-size:clamp(2rem,5vw,3.35rem);line-height:1.3;letter-spacing:.015em}.lead{margin:17px auto 0;color:var(--muted);font-size:1rem}
+    .scene{display:grid;grid-template-columns:minmax(220px,.9fr) minmax(0,1.1fr);gap:28px;align-items:center;padding:10px 44px 42px}.phone{position:relative;max-width:320px;margin:auto;padding:18px 16px 21px;border:7px solid #333b47;border-radius:36px;background:#f7f8fa;box-shadow:0 17px 35px rgba(40,48,60,.2)}.phone::before{content:"";display:block;width:70px;height:7px;margin:-7px auto 16px;border-radius:10px;background:#333b47}.msg{margin-left:auto;padding:13px 16px;border-radius:19px 19px 5px 19px;background:var(--blue-soft);color:var(--blue-dark);font-weight:800;line-height:1.5}.time{margin:8px 4px 0;color:#89919d;font-size:.72rem;text-align:right}.question h2{margin:0;font-size:1.48rem;line-height:1.45}.question p{margin:8px 0 0;color:var(--muted)}
+    .choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0 44px 44px}.choice{display:grid;grid-template-columns:43px 1fr;align-items:center;gap:13px;width:100%;min-height:78px;padding:14px 16px;border:1px solid var(--line);border-radius:19px;background:#fff;color:var(--ink);text-align:left;cursor:pointer;transition:.18s ease}.choice:hover,.choice:focus-visible{transform:translateY(-2px);border-color:var(--blue);box-shadow:0 10px 24px rgba(83,111,148,.12);outline:none}.choice[aria-pressed="true"]{border-color:var(--blue-dark);background:var(--blue-soft)}.letter{display:grid;place-items:center;width:43px;height:43px;border-radius:50%;background:var(--blue);color:white;font-family:Georgia,serif;font-size:1.25rem}.choice strong{font-size:.98rem;line-height:1.55}
+    .result{display:none;margin-top:24px;padding:38px;border:1px solid rgba(83,111,148,.18);border-radius:30px;background:var(--paper);box-shadow:var(--shadow)}.result.show{display:block;animation:rise .35s ease both}@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}.result-head{padding-bottom:25px;border-bottom:1px solid var(--line)}.result-kicker{margin:0 0 7px;color:var(--blue);font-weight:900;letter-spacing:.08em}.result h2{margin:0;font-family:Georgia,"Noto Serif TC","Songti TC",serif;font-size:clamp(1.8rem,4vw,2.75rem);line-height:1.38}.pattern{margin:18px 0 0;padding:16px 19px;border-radius:17px;background:var(--blue-dark);color:#fff;font-weight:700}.main-copy{display:grid;gap:15px;margin:27px 0}.main-copy p{margin:0;font-size:1.03rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{padding:21px;border:1px solid var(--line);border-radius:19px;background:#fff}.card h3,.wide h3,.action h3{margin:0 0 9px;color:var(--blue-dark);font-size:1.04rem}.card p,.wide p,.action p{margin:0;color:#4e5661}.wide{margin-top:14px;padding:22px;border-radius:19px;background:var(--blue-soft)}.action{margin-top:14px;padding:23px;border-radius:19px;background:var(--warm)}.words{margin-top:12px;padding:14px 17px;border-left:4px solid var(--blue);border-radius:4px 14px 14px 4px;background:#fff;font-weight:700}.again{display:block;margin:22px auto 0;padding:11px 24px;border:1px solid var(--blue-dark);border-radius:999px;background:transparent;color:var(--blue-dark);font-weight:800;cursor:pointer}footer{margin-top:20px;color:var(--muted);font-size:.8rem;text-align:center}
+    @media(max-width:680px){.page{width:min(100% - 18px,540px);padding-top:13px}.brand{margin:0 8px 11px}.hero{border-radius:24px}.intro{padding:30px 20px 20px}.intro h1{font-size:2.08rem}.lead{font-size:.94rem}.scene{grid-template-columns:1fr;gap:19px;padding:5px 20px 24px}.phone{width:min(276px,90%);padding:15px 14px 18px;border-width:6px;border-radius:31px}.question{text-align:center}.question h2{font-size:1.3rem}.choices{grid-template-columns:1fr;padding:0 20px 27px;gap:9px}.choice{min-height:66px;padding:11px 13px;border-radius:16px}.letter{width:38px;height:38px}.result{padding:27px 19px;border-radius:24px}.grid{grid-template-columns:1fr}.main-copy p{font-size:1rem}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="brand"><span>柔柔</span><small>關係溫度小測驗</small></div>
+    <section class="hero" aria-labelledby="quiz-title">
+      <div class="intro">
+        <p class="eyebrow">不要想太久，選第一個反應</p>
+        <h1 id="quiz-title">一句「晚點回」<br>看見你們之間還剩下什麼</h1>
+        <p class="lead">這不是在判斷妳愛不愛他，而是看見妳的心現在站在哪裡。</p>
+      </div>
+      <div class="scene">
+        <div class="phone" aria-label="訊息：今天可能晚一點回"><div class="msg">今天可能晚一點回</div><div class="time">今天 21:47</div></div>
+        <div class="question"><h2>看到這則訊息時<br>妳最先出現的反應是？</h2><p>沒有標準答案，選最接近妳當下感覺的那一個。</p></div>
+      </div>
+      <div class="choices" role="group" aria-label="測驗選項">
+        <button class="choice" type="button" data-choice="A" aria-pressed="false"><span class="letter">A</span><strong>問他去哪、跟誰</strong></button>
+        <button class="choice" type="button" data-choice="B" aria-pressed="false"><span class="letter">B</span><strong>心裡默默鬆一口氣</strong></button>
+        <button class="choice" type="button" data-choice="C" aria-pressed="false"><span class="letter">C</span><strong>回「喔好」，繼續做自己的事</strong></button>
+        <button class="choice" type="button" data-choice="D" aria-pressed="false"><span class="letter">D</span><strong>沒什麼反應</strong></button>
+      </div>
+    </section>
+
+    <section class="result" id="result" aria-live="polite">
+      <header class="result-head"><p class="result-kicker" id="result-kicker"></p><h2 id="result-title"></h2><p class="pattern" id="result-pattern"></p></header>
+      <div class="main-copy" id="result-copy"></div>
+      <div class="grid">
+        <article class="card"><h3>妳真正害怕的是</h3><p id="result-fear"></p></article>
+        <article class="card"><h3>他可能沒有看見的妳</h3><p id="result-hidden"></p></article>
+        <article class="card"><h3>你們正在形成的循環</h3><p id="result-cycle"></p></article>
+        <article class="card"><h3>妳現在真正需要的</h3><p id="result-need"></p></article>
+      </div>
+      <article class="wide"><h3>這個反應不一定代表不愛</h3><p id="result-nuance"></p></article>
+      <article class="action"><h3>今天先做一件小事</h3><p id="result-action"></p><div class="words" id="result-words"></div></article>
+      <button class="again" id="again" type="button">重新選一次</button>
+    </section>
+    <footer>這是一個自我覺察測驗，不是心理診斷。結果沒有好壞，可以按照妳的實際關係理解。</footer>
+  </main>
+  <script>
+    const results={
+      A:{kicker:"A｜仍在確認型",title:"妳還在意，只是妳的在意裡混進了害怕失去",pattern:"妳想知道的不只是他去哪裡，而是自己在他心裡是不是仍然重要。",copy:["看到他說晚點回，妳的注意力很快就落在『去哪裡、跟誰、為什麼沒有先說』。這不一定是想控制他，更像是關係裡有一些不確定，讓妳需要透過更多資訊確認自己沒有被排除。只要答案模糊、回覆變慢，妳的腦中就容易開始補完空白。","妳可能一邊告訴自己不要多想，一邊又忍不住觀察語氣、時間和細節。真正累人的不是那一晚，而是妳很久沒有穩穩感覺到：即使他有自己的生活，妳的位置也不會突然消失。","妳的情緒還會被他牽動，代表關係並沒有完全失去溫度。但如果每一次安全感都只能靠追問換來，妳會愈來愈敏感，他也可能愈來愈想躲。妳需要的不是更多證據，而是一次能說清楚彼此需要的對話。"],fear:"妳怕的不是他晚回，而是自己最後才知道、沒有被放在心上，或有一天他不再主動交代任何事。",hidden:"表面像是在查勤，底下其實是一個很想被選擇、被主動告知，也想確定自己仍然重要的妳。",cycle:"妳感到不安 → 追問細節 → 他覺得被管而縮短回覆 → 妳從冷淡裡感到更不安 → 問得更急。兩個人都在自保，距離卻被愈拉愈遠。",need:"比起行程表，妳更需要可預期的聯繫方式，以及對方願意主動讓妳知道：他的生活有妳的位置。",nuance:"在意與焦慮常常會一起出現。問題不是妳有情緒，而是情緒只能透過盤問被看見。妳可以保留在意，同時把真正的需要說得更直接。",action:"先把『你去哪裡？』換成說明自己的感受與需要，不審問，也不假裝沒事。",words:"「你晚回沒關係，但如果你能早一點告訴我，我會比較安心。我想知道的是，我們能不能有一個彼此都舒服的聯絡方式？」"},
+      B:{kicker:"B｜喘息需求型",title:"妳不是不想他回來，是妳已經太久沒有真正屬於自己的空間",pattern:"那一瞬間的放鬆，可能在提醒妳：這段關係裡，妳一直沒有好好休息。",copy:["看到訊息時，妳心裡先鬆了一口氣。今晚不用配合他的時間、不必顧慮另一個人的情緒，可以安靜吃飯、滑手機，或只是什麼都不做。這份輕鬆不代表妳討厭他，而是當他不在，妳才暫時不用扮演伴侶。","長期相處裡，很多人會把照顧、陪伴和隨時有空混在一起。妳可能已經習慣在他回來前收好自己的情緒，或下意識調整生活節奏。久了以後，一個人的晚上反而變成少數能把自己放回中心的時間。","真正值得注意的，不是妳享受獨處，而是妳是否只有在他不在時才覺得自在。如果答案是，關係需要的可能不是更多黏在一起，而是重新談出各自能呼吸、也能再靠近的空間。"],fear:"妳怕只要直接說想一個人，就會被理解成冷淡、不愛了，或讓對方覺得自己被嫌棄。",hidden:"妳不是沒有感情，而是太多微小的配合消耗了妳。那個放鬆的妳，只是在補回平常被擠掉的自己。",cycle:"妳需要空間卻不敢說 → 只能等他不在時喘息 → 他回來後妳再次收起自己 → 相處變成責任 → 妳更期待獨處。",need:"妳需要不必靠對方離開才能得到的個人空間，以及一段能容許彼此各自安靜的關係。",nuance:"健康的親密本來就包含分開。想獨處不等於想結束；真正讓人疏遠的，往往是需求長期不能被說出口，只能偷偷期待對方不在。",action:"替自己安排固定而明確的獨處時間，不用等他臨時晚回，也不用把需求包裝成忙碌。",words:"「我發現自己最近很需要一點獨處，不是因為不想跟你相處。我想每週留一個晚上各做各的，這樣我反而更有力氣靠近你。」"},
+      C:{kicker:"C｜平行運轉型",title:"妳們沒有不好，只是彼此已經很少真正進入對方的生活",pattern:"妳很穩定，也很獨立；只是『他在不在』正在慢慢失去差別。",copy:["妳回了『喔好』，然後繼續原本的安排。沒有猜測、沒有失落，也沒有特別開心。你們都知道彼此會回來，也都能把自己的生活處理好。這看起來是一段成熟、沒有負擔的關係。","但穩定和無感有時只隔著一條很細的線。當彼此的行程不再引發好奇，今天發生什麼也不急著分享，兩個人可能不是更信任了，而是已經習慣各自運轉。妳不是刻意疏遠，只是很久沒有感覺到靠近的必要。","這種關係最難察覺，因為它沒有明顯問題。沒有大吵，也沒有誰做錯什麼，只是共同生活慢慢取代了交流。直到某一天才發現，你們熟悉彼此的習慣，卻不知道對方最近在想什麼。"],fear:"妳可能怕一旦碰觸真正的感受，平靜會被打破；與其確認彼此變了多少，不如維持目前還能運作的樣子。",hidden:"妳看起來很自在，但心裡可能已經把很多期待收回來了。不是因為不需要，而是因為覺得問了也不一定有答案。",cycle:"彼此都能照顧自己 → 少了主動詢問 → 分享愈來愈少 → 更不知道要聊什麼 → 最後只剩生活事項。平靜一直都在，連結卻慢慢變薄。",need:"妳需要的不是製造浪漫，而是重新對一個已經太熟悉的人產生一點真實的好奇。",nuance:"各自生活不一定是壞事。判斷關係是否仍有連結的關鍵，不是你們多黏，而是當妳想分享、脆弱或改變時，第一個還會不會想到他。",action:"今天不要只交換行程，問一個妳真的不知道答案、也不能用『還好』帶過的問題。",words:"「我們好像很久沒有好好聊天了。我想知道，你最近最常放在心裡、但沒有跟我說的是什麼？」"},
+      D:{kicker:"D｜情緒退場型",title:"妳不是很灑脫，而是這段關係已經很久碰不到妳的情緒",pattern:"沒有反應，有時不是完全安心，而是期待消失後留下的安靜。",copy:["看到訊息時，妳沒有特別想知道原因，也沒有因為多出一個人的晚上而輕鬆。妳只是看過、回覆，然後繼續生活。這可能是一種很深的信任，也可能是妳已經不再把他的出現或缺席放進自己的情緒裡。","人不會突然變得無感。通常是在一次次想靠近卻沒有被接住、想溝通卻只得到敷衍之後，慢慢把期待調低。當失望不再值得爭論，心就學會提早退場。妳不是某天決定不愛，而是很久沒有得到足以讓妳繼續在意的回應。","這個答案也不代表妳一定該離開。它只是提醒妳，比起問還愛不愛，也許要先問：我是不是真的平靜，還是已經放棄被理解？兩者看起來很像，走向卻完全不同。"],fear:"妳可能怕重新承認自己仍有需要，最後只會再失望一次；所以沒有期待，反而比較安全。",hidden:"表面的平靜下面，也許住著一個曾經努力過、解釋過，後來決定不再打擾任何人的妳。",cycle:"妳試著靠近卻沒有回應 → 降低期待保護自己 → 他以為一切沒事 → 更少主動靠近 → 妳逐漸退出這段關係的情緒現場。",need:"妳需要先對自己誠實：這份安靜是自在，還是麻木。只有分清楚，妳才知道下一步是重新靠近、重新談條件，還是重新選擇。",nuance:"情緒平穩不等於沒有愛，長期關係也不必一直心跳加快。但如果他的快樂、疲累與缺席都再也碰不到妳，值得停下來看一看，妳是安心地留下，還是只是習慣沒有離開。",action:"先不要急著做分手或繼續的結論。找一個沒有爭吵的時刻，說出妳最近最真實的狀態，看看對方是否願意一起面對。",words:"「我發現自己最近對很多事都沒有感覺了。我不想怪你，但我想知道，我們是不是也感覺到彼此愈來愈遠？」"}
+    };
+    const result=document.querySelector('#result');const choices=[...document.querySelectorAll('.choice')];
+    function renderResult(key,scroll=true){const d=results[key];if(!d)return;choices.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.choice===key)));document.querySelector('#result-kicker').textContent=d.kicker;document.querySelector('#result-title').textContent=d.title;document.querySelector('#result-pattern').textContent=d.pattern;document.querySelector('#result-copy').innerHTML=d.copy.map(p=>`<p>${p}</p>`).join('');document.querySelector('#result-fear').textContent=d.fear;document.querySelector('#result-hidden').textContent=d.hidden;document.querySelector('#result-cycle').textContent=d.cycle;document.querySelector('#result-need').textContent=d.need;document.querySelector('#result-nuance').textContent=d.nuance;document.querySelector('#result-action').textContent=d.action;document.querySelector('#result-words').textContent=d.words;result.classList.add('show');history.replaceState(null,'',`#${key}`);if(scroll)result.scrollIntoView({behavior:'smooth',block:'start'})}
+    choices.forEach(b=>b.addEventListener('click',()=>renderResult(b.dataset.choice)));
+    document.querySelector('#again').addEventListener('click',()=>{result.classList.remove('show');choices.forEach(b=>b.setAttribute('aria-pressed','false'));history.replaceState(null,'',location.pathname);document.querySelector('.hero').scrollIntoView({behavior:'smooth',block:'start'})});
+    const initial=location.hash.slice(1).toUpperCase();if(results[initial])renderResult(initial,false);
+  </script>
+</body>
+</html>
