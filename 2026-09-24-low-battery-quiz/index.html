@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2e7d0">
+  <title>低電量的你，現在需要怎麼充電？｜柔柔</title>
+  <meta name="description" content="憑直覺選一個最想走進去的地方，看看你現在最需要的充電方式。">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23e9d8ba'/%3E%3Cpath d='M19 18h23v28H19z' fill='none' stroke='%236f6f42' stroke-width='5'/%3E%3Cpath d='M42 27h4v10h-4M23 39l8-12v9h8L30 48v-9z' fill='%23cf6739'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --paper: #f4ead5;
+      --paper-light: #fbf5e9;
+      --ink: #332d27;
+      --muted: #746b60;
+      --orange: #c96339;
+      --orange-soft: #f1d5b8;
+      --olive: #6f7140;
+      --olive-soft: #dfe1c5;
+      --line: rgba(83, 68, 48, .16);
+      --shadow: 0 18px 50px rgba(90, 65, 32, .13);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Noto Serif TC", "PingFang TC", "Microsoft JhengHei", serif;
+      background:
+        radial-gradient(circle at 8% 2%, rgba(202, 102, 58, .10), transparent 27rem),
+        radial-gradient(circle at 92% 30%, rgba(111, 113, 64, .10), transparent 28rem),
+        repeating-linear-gradient(115deg, rgba(112, 86, 51, .018) 0 1px, transparent 1px 5px),
+        var(--paper);
+      min-height: 100vh;
+    }
+    button { font: inherit; }
+    .shell { width: min(100% - 32px, 980px); margin: 0 auto; padding: 28px 0 54px; }
+    .brand { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--olive); font-weight: 700; letter-spacing: .14em; font-size: .92rem; margin-bottom: 22px; }
+    .brand::before, .brand::after { content: ""; width: 34px; height: 1px; background: currentColor; opacity: .45; }
+    .card { background: rgba(251, 245, 233, .88); border: 1px solid rgba(116, 92, 61, .17); border-radius: 28px; box-shadow: var(--shadow); overflow: hidden; backdrop-filter: blur(8px); }
+    .intro { padding: clamp(24px, 5vw, 54px); }
+    .hero { display: grid; grid-template-columns: minmax(0, .92fr) minmax(320px, 1.08fr); align-items: center; gap: clamp(28px, 5vw, 58px); }
+    .copy { text-align: left; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; color: var(--orange); font-weight: 700; letter-spacing: .08em; font-size: .9rem; }
+    h1 { margin: 12px 0 14px; font-size: clamp(2.15rem, 6vw, 4.3rem); line-height: 1.18; letter-spacing: -.035em; }
+    .lead { margin: 0; color: var(--muted); font-size: 1.06rem; line-height: 1.85; }
+    .image-frame { position: relative; padding: 10px; border-radius: 26px; background: #eee0c6; transform: rotate(.5deg); box-shadow: 0 14px 38px rgba(72, 52, 27, .15); }
+    .image-frame::after { content: ""; position: absolute; inset: 5px; border: 1px solid rgba(92, 66, 36, .16); border-radius: 21px; pointer-events: none; }
+    .image-frame img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 18px; }
+    .prompt { text-align: center; margin: 42px auto 19px; }
+    .prompt h2 { margin: 0 0 8px; font-size: clamp(1.45rem, 4vw, 2rem); }
+    .prompt p { margin: 0; color: var(--muted); line-height: 1.7; }
+    .choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .choice {
+      position: relative; display: flex; gap: 14px; align-items: center; width: 100%; min-height: 88px;
+      padding: 16px 18px; border: 1px solid var(--line); border-radius: 18px; color: var(--ink); text-align: left;
+      background: rgba(255, 251, 242, .72); cursor: pointer; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .choice:hover { transform: translateY(-2px); border-color: rgba(201, 99, 57, .5); box-shadow: 0 10px 24px rgba(98, 68, 35, .10); }
+    .choice:focus-visible { outline: 3px solid rgba(201, 99, 57, .28); outline-offset: 3px; }
+    .letter { flex: 0 0 46px; height: 46px; border-radius: 50% 46% 52% 44%; display: grid; place-items: center; color: #fff; font: 800 1.35rem/1 system-ui, sans-serif; transform: rotate(-3deg); }
+    .choice:nth-child(odd) .letter { background: var(--orange); }
+    .choice:nth-child(even) .letter { background: var(--olive); }
+    .choice strong { display: block; font-size: 1rem; line-height: 1.45; }
+    .choice span:last-child { color: var(--muted); font-size: .88rem; line-height: 1.4; }
+    .micro { text-align: center; color: var(--muted); font-size: .83rem; margin: 19px 0 0; }
+    .result { display: none; padding: clamp(24px, 5vw, 54px); }
+    .result.active { display: block; animation: rise .36s ease both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    .result-top { max-width: 720px; margin: 0 auto; text-align: center; }
+    .result-badge { width: 62px; height: 62px; margin: 0 auto 15px; border-radius: 50% 46% 52% 44%; display: grid; place-items: center; color: white; font: 800 1.7rem/1 system-ui, sans-serif; background: var(--orange); transform: rotate(-3deg); }
+    .result h2 { font-size: clamp(1.85rem, 5vw, 3rem); margin: 0 0 10px; line-height: 1.25; }
+    .result .subtitle { color: var(--olive); font-weight: 700; font-size: 1.08rem; margin: 0 0 20px; }
+    .result .opening { color: var(--muted); line-height: 1.9; font-size: 1.03rem; margin: 0 auto; max-width: 650px; }
+    .reading { max-width: 720px; margin: 35px auto 0; display: grid; gap: 14px; }
+    .section { padding: 22px; border: 1px solid var(--line); border-radius: 20px; background: rgba(255, 251, 242, .66); }
+    .section h3 { margin: 0 0 9px; font-size: 1.08rem; display: flex; align-items: center; gap: 9px; }
+    .section h3::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--orange); box-shadow: 14px 0 0 var(--olive); margin-right: 14px; }
+    .section p { margin: 0; color: #554d44; line-height: 1.9; }
+    .action { background: linear-gradient(135deg, rgba(241, 213, 184, .82), rgba(223, 225, 197, .78)); border-color: transparent; }
+    .action strong { color: var(--orange); }
+    details { max-width: 720px; margin: 18px auto 0; border-top: 1px solid var(--line); padding-top: 18px; }
+    summary { cursor: pointer; font-weight: 700; color: var(--olive); padding: 8px 0; }
+    .others { display: grid; gap: 9px; margin-top: 10px; }
+    .other-btn { display: flex; justify-content: space-between; align-items: center; padding: 13px 15px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.38); color: var(--ink); cursor: pointer; text-align: left; }
+    .other-btn:hover { border-color: var(--olive); }
+    .restart { display: block; margin: 28px auto 0; padding: 12px 19px; border-radius: 999px; border: 1px solid var(--ink); color: var(--ink); background: transparent; cursor: pointer; }
+    footer { text-align: center; color: var(--muted); font-size: .78rem; line-height: 1.7; padding: 24px 14px 0; }
+    .signature { color: var(--ink); font-weight: 700; margin-bottom: 7px; letter-spacing: .05em; }
+    @media (max-width: 720px) {
+      .shell { width: min(100% - 20px, 560px); padding-top: 18px; }
+      .card { border-radius: 23px; }
+      .intro, .result { padding: 24px 18px 30px; }
+      .hero { grid-template-columns: 1fr; gap: 22px; }
+      .copy { text-align: center; }
+      .image-frame { order: 2; width: min(100%, 460px); margin: 0 auto; }
+      h1 { font-size: clamp(2.05rem, 11vw, 3rem); }
+      .prompt { margin-top: 30px; }
+      .choices { grid-template-columns: 1fr; }
+      .choice { min-height: 82px; }
+    }
+    @media (max-width: 380px) {
+      .shell { width: min(100% - 14px, 360px); }
+      .intro, .result { padding-inline: 14px; }
+      .choice { padding: 13px; gap: 11px; }
+      .letter { flex-basis: 42px; height: 42px; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="brand">柔柔的低電量測驗</div>
+    <section class="card intro" id="intro">
+      <div class="hero">
+        <div class="copy">
+          <div class="eyebrow">別想太久，跟著第一直覺</div>
+          <h1>低電量的時候，<br>你最想走進哪個地方？</h1>
+          <p class="lead">你選擇的地方，藏著你現在最需要的充電方式。沒有標準答案，選一個讓你第一眼就感到安心的場景。</p>
+        </div>
+        <div class="image-frame">
+          <img src="assets/quiz-scenes.png" alt="暖燈房間、安靜海邊、料理中的廚房與有人等待的咖啡店四個場景">
+        </div>
+      </div>
+      <div class="prompt">
+        <h2>現在，你最想去哪裡？</h2>
+        <p>點選答案，看完整解析</p>
+      </div>
+      <div class="choices" aria-label="心理測驗選項">
+        <button class="choice" data-choice="A"><span class="letter">A</span><span><strong>亮著一盞暖燈的房間</strong><span>安靜、柔軟，可以把門關上</span></span></button>
+        <button class="choice" data-choice="B"><span class="letter">B</span><span><strong>安靜、沒有人的海邊</strong><span>只有海浪和很遠的天空</span></span></button>
+        <button class="choice" data-choice="C"><span class="letter">C</span><span><strong>飄著食物香氣的廚房</strong><span>有熱氣，也有剛煮好的食物</span></span></button>
+        <button class="choice" data-choice="D"><span class="letter">D</span><span><strong>有人正在等你的咖啡店</strong><span>那個位置一直替你留著</span></span></button>
+      </div>
+      <p class="micro">憑直覺選就好，你現在的感受比理由更重要。</p>
+    </section>
+
+    <section class="card result" id="result" tabindex="-1" aria-live="polite">
+      <div class="result-top">
+        <div class="result-badge" id="resultLetter">A</div>
+        <h2 id="resultTitle"></h2>
+        <p class="subtitle" id="resultSubtitle"></p>
+        <p class="opening" id="resultOpening"></p>
+      </div>
+      <div class="reading">
+        <article class="section"><h3>你現在可能怎麼了</h3><p id="resultState"></p></article>
+        <article class="section"><h3>你真正需要的充電方式</h3><p id="resultNeed"></p></article>
+        <article class="section action"><h3>今天先做這件事</h3><p id="resultAction"></p></article>
+        <article class="section"><h3>柔柔想跟你說</h3><p id="resultWords"></p></article>
+      </div>
+      <details>
+        <summary>也想看看其他答案？</summary>
+        <div class="others" id="otherResults"></div>
+      </details>
+      <button class="restart" id="restart">重新選一次</button>
+    </section>
+
+    <footer>
+      <div class="signature">@柔柔</div>
+      本測驗為娛樂與自我探索用途，不代表任何醫療或心理診斷。<br>
+      如果低落持續並明顯影響生活，請及時尋求專業協助。
+    </footer>
+  </main>
+
+  <script>
+    const results = {
+      A: {
+        title: '你需要的是「安全感充電」',
+        subtitle: '先讓世界安靜一點，你才有力氣回來。',
+        opening: '你選的不是一個房間，而是一個不用回應、不必解釋，也不會被打擾的地方。你現在最缺的，可能不是更多鼓勵，而是一段真正屬於自己的安全時間。',
+        state: '最近的你可能接收了太多聲音：工作訊息、別人的期待、還沒完成的事情，甚至連休息時都在想下一步。你看起來只是想待在家，心裡真正想要的，是暫時不用對任何人負責。',
+        need: '你的充電關鍵是「可控制的安靜」。熟悉的燈光、舒服的溫度、關掉通知，以及一段不被打斷的時間，都能幫助身體慢慢放下警戒。這不是逃避，而是讓自己重新感覺安全。',
+        action: '替自己保留 20 分鐘：把手機開啟勿擾、點一盞暖燈，準備熱飲，這段時間不處理任何問題。只要坐著或躺著就好。',
+        words: '你不用等所有事情都完成，才有資格休息。門可以先關一下，世界晚一點再回也沒關係。'
+      },
+      B: {
+        title: '你需要的是「留白充電」',
+        subtitle: '不是想消失，只是腦袋需要更寬的地方。',
+        opening: '海邊吸引你的，可能不是風景，而是那裡沒有誰急著跟你說話，也沒有事情立刻要你決定。你現在需要的，是把過多的聲音放遠一點。',
+        state: '你可能已經想太多、看太多，也吸收了太多別人的情緒。當腦袋塞滿未完成的念頭，就連一個簡單選擇都會變累。你不是沒有方向，只是現在的雜訊蓋過了自己的聲音。',
+        need: '你的充電關鍵是「沒有目的的空白」。不用產出、不用整理想法，也不用趁散步時想通人生。當視線看向遠方、身體開始走動，大腦才有機會從緊繃裡鬆開。',
+        action: '找一段 10 分鐘的路，不戴耳機、不滑手機，也不替自己安排任務。只是慢慢走，說出眼前看見的 5 樣東西。',
+        words: '有些答案不是想出來的，是安靜夠久以後，自己浮上來的。今天先別逼自己找到方向。'
+      },
+      C: {
+        title: '你需要的是「身體充電」',
+        subtitle: '心很累的時候，先從一頓熱的開始。',
+        opening: '你第一眼想到的是廚房，代表你的身體可能比你更早知道：現在不需要大道理，而是溫度、食物和被好好照顧的感覺。',
+        state: '忙碌時，你可能習慣先忽略餓、累、冷或緊繃，等到情緒突然掉下來，才發現自己已經撐了很久。很多看似低落的時刻，其實也混著睡眠不足、空腹和身體疲憊。',
+        need: '你的充電關鍵是「回到身體」。規律吃飯、喝水、洗澡與睡覺看似普通，卻能把飄在外面的注意力接回來。被熱氣包圍的感覺，也會提醒你：你值得被照顧。',
+        action: '先吃一份溫熱、容易入口的食物，再慢慢喝一杯水。吃的時候先不看手機，注意溫度、味道和身體的感覺。',
+        words: '別小看一碗熱食。你不必靠意志力撐過所有低潮，有時候先餵飽自己，心才有地方落下來。'
+      },
+      D: {
+        title: '你需要的是「陪伴充電」',
+        subtitle: '你不是需要很多人，只需要一個真的在的人。',
+        opening: '你選擇有人等待的咖啡店，代表你現在渴望的不是熱鬧，而是一段不必逞強的連結。有人記得你、替你留位置，會讓你感覺自己不用一個人撐完。',
+        state: '你可能很會照顧別人，也習慣回答「我沒事」。但當情緒累積太久，真正難受的往往不是事情本身，而是沒有人知道你其實已經很累。你想被理解，又怕自己的情緒成為別人的負擔。',
+        need: '你的充電關鍵是「被看見」。不需要對方幫你解決問題，只要他願意聽、願意陪你把話說完。比起廣泛社交，你更需要一段安全、真實，而且不用表現得很好的關係。',
+        action: '傳訊息給一個信任的人：「我今天有點沒電，不用幫我想辦法，可以陪我聊 10 分鐘嗎？」把需要說清楚，陪伴才有機會走近你。',
+        words: '想被陪伴並不代表你不夠獨立。你可以自己走很遠，也可以在累的時候，讓一個人坐到你旁邊。'
+      }
+    };
+
+    const intro = document.getElementById('intro');
+    const result = document.getElementById('result');
+    const fields = ['Letter','Title','Subtitle','Opening','State','Need','Action','Words'];
+
+    function showResult(key) {
+      const data = results[key];
+      document.getElementById('resultLetter').textContent = key;
+      document.getElementById('resultTitle').textContent = data.title;
+      document.getElementById('resultSubtitle').textContent = data.subtitle;
+      document.getElementById('resultOpening').textContent = data.opening;
+      document.getElementById('resultState').textContent = data.state;
+      document.getElementById('resultNeed').textContent = data.need;
+      document.getElementById('resultAction').textContent = data.action;
+      document.getElementById('resultWords').textContent = data.words;
+      const others = document.getElementById('otherResults');
+      others.innerHTML = Object.keys(results).filter(k => k !== key).map(k =>
+        `<button class="other-btn" data-other="${k}"><span><strong>${k}</strong>　${results[k].title}</span><span>看解析 →</span></button>`
+      ).join('');
+      intro.hidden = true;
+      result.classList.add('active');
+      result.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => result.focus({ preventScroll: true }), 350);
+    }
+
+    document.querySelectorAll('.choice').forEach(btn => btn.addEventListener('click', () => showResult(btn.dataset.choice)));
+    document.getElementById('otherResults').addEventListener('click', e => {
+      const btn = e.target.closest('[data-other]');
+      if (btn) showResult(btn.dataset.other);
+    });
+    document.getElementById('restart').addEventListener('click', () => {
+      result.classList.remove('active');
+      result.style.display = 'none';
+      intro.hidden = false;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => document.querySelector('.choice').focus({ preventScroll: true }), 350);
+    });
+  </script>
+</body>
+</html>
