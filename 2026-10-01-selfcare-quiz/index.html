@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2eb">
+  <meta name="description" content="看圖三秒，憑第一直覺選一個畫面，讀讀此刻你想先留給自己的照顧。">
+  <title>你想先照顧哪個自己？｜柔柔</title>
+  <style>
+    :root { color-scheme:light; --paper:#f6f2eb; --paper-light:#fffcf7; --ink:#3b332e; --muted:#736a63; --line:#d9cfc3; --accent:#a76654; --serif:"Kaiti TC","DFKai-SB","KaiTi","STKaiti",serif; --sans:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:radial-gradient(circle at 18% 3%,#fffaf3 0%,transparent 40%),linear-gradient(145deg,#f9f6f0,#f2ede5); font:16px/1.8 var(--sans); }
+    button { font:inherit; }
+    .shell { width:min(100% - 32px,690px); margin:auto; }
+    header { padding:24px 0 17px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); }
+    .brand { font:1.35rem/1.3 var(--serif); letter-spacing:.18em; }
+    .series { color:var(--muted); font-size:.8rem; letter-spacing:.06em; }
+    main { min-height:calc(100dvh - 150px); padding:33px 0 55px; }
+    .intro { text-align:center; }
+    .eyebrow { margin:0 0 9px; color:var(--accent); font-size:.85rem; letter-spacing:.15em; }
+    h1,h2,h3 { font-family:var(--serif); font-weight:500; }
+    h1 { margin:0 auto 14px; font-size:clamp(1.8rem,5.8vw,2.55rem); line-height:1.42; letter-spacing:.025em; }
+    .sub { margin:0 auto 24px; color:var(--muted); font-size:.99rem; line-height:1.8; }
+    .sub span { display:block; }
+    .art-wrap { position:relative; overflow:hidden; width:100%; aspect-ratio:1122 / 895; background:#fffaf2; border:1px solid #e8ded1; border-radius:13px; box-shadow:0 10px 28px rgba(74,55,39,.065); }
+    .art-wrap img { display:block; width:100%; height:auto; transform:translateY(-18.6%); pointer-events:none; user-select:none; }
+    .choice-area { margin-top:44px; padding-top:25px; border-top:1px solid var(--line); }
+    .hint { margin:0 auto 17px; color:var(--muted); font-size:.94rem; }
+    .choices { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:11px; text-align:left; }
+    .choice { display:flex; align-items:center; gap:14px; min-height:82px; width:100%; padding:13px 16px; border:1px solid #ded1c4; border-radius:14px; background:var(--paper-light); color:var(--ink); text-align:left; cursor:pointer; box-shadow:0 4px 13px rgba(74,55,39,.035); transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease; }
+    .choice:hover,.choice:focus-visible { border-color:var(--accent); box-shadow:0 6px 18px rgba(74,55,39,.1); transform:translateY(-2px); outline:none; }
+    .choice:active { transform:translateY(0); }
+    .letter { display:grid; place-items:center; flex:none; width:44px; height:44px; border-radius:50%; background:#f1e2d8; color:#935d4d; font:600 1.25rem/1 var(--serif); }
+    .choice-copy strong,.choice-copy small { display:block; }
+    .choice-copy strong { font-size:1rem; font-weight:600; line-height:1.45; }
+    .choice-copy small { margin-top:2px; color:var(--muted); font-size:.8rem; line-height:1.4; }
+    [hidden] { display:none !important; }
+    .result { text-align:center; }
+    .back { display:block; margin:0 0 28px; padding:7px 0; border:0; background:transparent; color:var(--accent); cursor:pointer; font-size:.9rem; }
+    .back:hover { text-decoration:underline; }
+    .result-kicker { margin:0 0 8px; color:var(--accent); font-size:.9rem; letter-spacing:.08em; }
+    .result h2 { margin:0 auto 15px; max-width:16em; font-size:clamp(1.85rem,6vw,2.65rem); line-height:1.43; }
+    .lead { max-width:34em; margin:0 auto 32px; color:#57493e; font-size:1.1rem; line-height:1.9; }
+    .result-section { padding:26px 5px; border-top:1px solid var(--line); }
+    .result-section h3 { margin:0 0 14px; color:var(--accent); font-size:1.28rem; }
+    .result-section p { max-width:36em; margin:0 auto 15px; font-size:1.02rem; line-height:1.95; }
+    .result-section p:last-child { margin-bottom:0; }
+    .action { margin:19px auto 28px; max-width:35em; padding:18px 23px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .action strong { display:block; margin-bottom:8px; color:var(--accent); font-weight:600; }
+    .action p { margin:0; line-height:1.9; }
+    .closing { max-width:34em; margin:0 auto 31px; font-family:var(--serif); font-size:1.22rem; line-height:1.75; }
+    .other-label { margin:0 0 13px; color:var(--muted); font-size:.9rem; }
+    .other { display:flex; justify-content:center; gap:9px; flex-wrap:wrap; }
+    .other button { min-height:44px; padding:7px 14px; border:1px solid #cdbfb0; border-radius:999px; background:transparent; color:var(--ink); cursor:pointer; }
+    .other button:hover,.other button:focus-visible { border-color:var(--accent); color:var(--accent); outline:none; }
+    .other button[aria-current="true"] { border-color:var(--accent); color:var(--accent); font-weight:700; }
+    footer { padding:0 0 26px; text-align:center; color:#8c8075; font-size:.8rem; }
+    @media(max-width:600px) { .choice-area { margin-top:34px; padding-top:22px; } .choices { grid-template-columns:1fr; gap:9px; } .choice { min-height:70px; } }
+    @media(max-width:480px) { .shell { width:min(100% - 24px,690px); } header { padding:16px 2px 12px; } main { padding-top:24px; } .series { font-size:.72rem; } .sub { margin-bottom:17px; } .art-wrap { border-radius:9px; } .result-section { padding:23px 0; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header><div class="brand">柔柔</div><div class="series">照顧自己 · 直覺小測驗</div></header>
+    <main>
+      <section id="quiz" class="intro" aria-labelledby="quiz-title">
+        <p class="eyebrow">給現在的你</p>
+        <h1 id="quiz-title">第一眼，你想走向哪個畫面？</h1>
+        <p class="sub"><span>先看圖三秒，不要想太多</span><span>憑直覺選 A、B、C 或 D</span></p>
+        <div class="art-wrap">
+          <img src="quiz-art.webp" alt="四張素描畫面：A 溫熱的一餐，B 安靜的床，C 晨光步道，D 行事曆與聽診器" width="1122" height="1402">
+        </div>
+        <div class="choice-area">
+          <p class="hint">看完圖片後，按下第一眼想選的畫面</p>
+          <div class="choices" aria-label="選擇一個畫面">
+            <button class="choice" type="button" data-choice="A"><span class="letter">A</span><span class="choice-copy"><strong>溫熱的一餐</strong><small>留一段時間，好好吃飯</small></span></button>
+            <button class="choice" type="button" data-choice="B"><span class="letter">B</span><span class="choice-copy"><strong>安靜的床</strong><small>今晚想早一點休息</small></span></button>
+            <button class="choice" type="button" data-choice="C"><span class="letter">C</span><span class="choice-copy"><strong>晨光步道</strong><small>走出去，讓自己透透氣</small></span></button>
+            <button class="choice" type="button" data-choice="D"><span class="letter">D</span><span class="choice-copy"><strong>行事曆與聽診器</strong><small>把掛心的事安排清楚</small></span></button>
+          </div>
+        </div>
+      </section>
+      <section id="result" class="result" aria-live="polite" aria-labelledby="result-title" hidden>
+        <button id="back" class="back" type="button">← 回到選圖</button>
+        <p id="result-kicker" class="result-kicker"></p>
+        <h2 id="result-title" tabindex="-1"></h2>
+        <p id="result-lead" class="lead"></p>
+        <div id="result-body"></div>
+        <p class="other-label">想看看其他畫面，也可以換一張</p>
+        <div id="other" class="other" aria-label="其他選項"></div>
+      </section>
+    </main>
+    <footer>柔柔 · 趁還能選，把一點時間留給自己</footer>
+  </div>
+  <script>
+    const results = {
+      A: {
+        name:'溫熱的一餐', title:'你想找回被好好對待的日常',
+        lead:'你第一眼走向一張餐桌。那份吸引你的，可能是終於能坐下來，替自己好好過一個普通的晚上。',
+        sections:[
+          {heading:'你為什麼會選這裡', paragraphs:[
+            '忙的時候，吃飯很容易變成待辦事項。趕快吃完、邊吃邊回訊息，甚至先顧好別人，輪到自己就隨便解決。你未必不知道怎麼照顧身體，只是你的時間總被更急的事拿走。',
+            '這張桌上的飯菜讓你停了一下。它代表的可能不是一份「完美餐」，而是有人願意替這一刻花心思。你也可以成為那個願意為自己留一個位置的人。'
+          ]},
+          {heading:'你最近可能忽略的感覺', paragraphs:[
+            '你也許習慣在很累時才問自己想吃什麼，選擇只剩方便和湊合。久了以後，連「我其實想吃一頓舒服的飯」都會被你覺得太麻煩。',
+            '照顧自己不用從嚴格控制每一口開始。能分辨自己是餓了、累了，還是只是想被安慰，已經是在更認真地聽自己的需要。'
+          ]},
+          {heading:'柔柔想跟你說', paragraphs:[
+            '今天挑一餐，讓自己坐下來吃。菜色不必多厲害，也不需要拍照證明。先把手機放旁邊幾分鐘，吃到喜歡的味道時，就讓自己好好感覺它。'
+          ]}
+        ],
+        action:'這週替自己留一頓不用趕的飯，問一句「今天我真正想吃什麼？」',
+        closing:'你值得被好好對待，也包括你自己給自己的那一份。'
+      },
+      B: {
+        name:'安靜的床', title:'你想讓自己真正停下來',
+        lead:'這張沒有人的床讓你想靠近，可能是因為你已經很久沒有一段時間，什麼都不用回應。',
+        sections:[
+          {heading:'你為什麼會選這裡', paragraphs:[
+            '白天要處理工作、回訊息、照顧別人的情緒。到了晚上，好不容易輪到自己，你可能又捨不得睡，想用滑手機把白天沒拿到的自由補回來。',
+            '所以你選的未必只是睡覺，而是一個可以暫時不用表現、不用解釋、也不用把事情安排好的地方。那張床像在說：今天到這裡就可以了。'
+          ]},
+          {heading:'你最近可能忽略的感覺', paragraphs:[
+            '你可能比自己承認的還累。身體躺下了，腦袋卻仍在開會，想明天要做什麼、剛才那句話是不是說錯了。休息於是變成一件你很想要、又很難安心做的事。',
+            '有些事情今天做不完，並不代表你不夠努力。讓自己停下來，不需要先把所有待辦清空。'
+          ]},
+          {heading:'柔柔想跟你說', paragraphs:[
+            '今晚先從一件小事開始：睡前留一小段不處理別人的時間。把手機放遠一點、把燈調暗，明天要做的事寫下來，然後允許自己今天先結束。'
+          ]}
+        ],
+        action:'選一個晚上，睡前十五分鐘不再回訊息，只做一件讓自己慢下來的事。',
+        closing:'你不用等到撐不住，才可以休息。'
+      },
+      C: {
+        name:'晨光步道', title:'你想找回身體的輕盈感',
+        lead:'你看到一條可以往前走的路。這個選擇，像是你心裡還留著一點想動起來的念頭。',
+        sections:[
+          {heading:'你為什麼會選這裡', paragraphs:[
+            '日子一忙，活動身體很容易被排到最後。你可能也想過「有空要去運動」，卻把它想成一套完整計畫：換衣服、出門、流汗、維持好幾週。光想到這些，就已經有點累。',
+            '這條步道沒有要求你走多快。它只是留了一個出口，讓你有機會從重複的工作和座位上起身，看看風、看看光，重新感覺自己在往前。'
+          ]},
+          {heading:'你最近可能忽略的感覺', paragraphs:[
+            '你想要的也許不是達成運動數字，而是能自由使用身體的感覺。當生活只剩「應該完成什麼」，走一小段沒有目的的路，反而能把注意力帶回自己身上。',
+            '不用拿今天的狀態和從前比較。累了就慢一點，願意開始已經很值得。'
+          ]},
+          {heading:'柔柔想跟你說', paragraphs:[
+            '這週找一個你方便的時段，出去走十分鐘。走到一半想回來就回來；如果看到喜歡的風景，就多停一會兒。把活動身體變成可親近的日常，慢慢來。'
+          ]}
+        ],
+        action:'挑一天走一小段路，回來只記住一個讓你感覺舒服的瞬間。',
+        closing:'照自己的步調走，也是在往前。'
+      },
+      D: {
+        name:'行事曆與聽診器', title:'你想要一份踏實的安心',
+        lead:'你走向行事曆，可能是心裡有一件「該替自己處理」的事，已經被往後排了很久。',
+        sections:[
+          {heading:'你為什麼會選這裡', paragraphs:[
+            '有些事不急，卻總在心裡佔著位置。可能是持續讓你在意的身體感受、一直想安排的檢查，也可能只是生活太滿，你連喘口氣的時間都還沒排進去。',
+            '你選這張圖，不表示有什麼問題。它比較像你想從「改天再說」往前走一步，讓那份掛心有個可以安放的地方。'
+          ]},
+          {heading:'你最近可能忽略的感覺', paragraphs:[
+            '你很會替別人的事留時間，輪到自己的需要，卻常覺得可以再等等。其實不確定的感覺最容易消耗人：一邊擔心，一邊又怕面對。',
+            '有些安心來自把事情寫進日程，找合適的人聊清楚；有些安心則來自允許自己在日程上留下空白。你可以選擇眼前最需要的那一種。'
+          ]},
+          {heading:'柔柔想跟你說', paragraphs:[
+            '如果有持續不舒服或一直掛心的狀況，可以安排合適的專業諮詢。若你只是忙到忘了自己，也先替自己留出一段不被工作佔滿的時間。不用一次處理全部，先做下一個可行的步驟。'
+          ]}
+        ],
+        action:'打開行事曆，替那件拖了很久的事留一個具體時段。',
+        closing:'替自己留時間，是一種很實在的在乎。'
+      }
+    };
+    const quiz=document.getElementById('quiz');
+    const result=document.getElementById('result');
+    const body=document.getElementById('result-body');
+    const other=document.getElementById('other');
+    const heading=document.getElementById('result-title');
+    function show(key,focus=true) {
+      const item=results[key];
+      if (!item) {
+        quiz.hidden=false; result.hidden=true; document.title='你想先照顧哪個自己？｜柔柔';
+        if (focus) document.getElementById('quiz-title').scrollIntoView({block:'start'});
+        return;
+      }
+      document.getElementById('result-kicker').textContent=`你選了 ${key} · ${item.name}`;
+      heading.textContent=item.title;
+      document.getElementById('result-lead').textContent=item.lead;
+      body.replaceChildren();
+      for(const section of item.sections) {
+        const el=document.createElement('section'); el.className='result-section';
+        const h=document.createElement('h3'); h.textContent=section.heading; el.append(h);
+        for(const paragraph of section.paragraphs) { const p=document.createElement('p'); p.textContent=paragraph; el.append(p); }
+        body.append(el);
+      }
+      const action=document.createElement('div'); action.className='action';
+      const label=document.createElement('strong'); label.textContent='這週可以先做的一件小事';
+      const p=document.createElement('p'); p.textContent=item.action; action.append(label,p); body.append(action);
+      const closing=document.createElement('p'); closing.className='closing'; closing.textContent=item.closing; body.append(closing);
+      other.replaceChildren();
+      for(const [option,data] of Object.entries(results)) {
+        const button=document.createElement('button'); button.type='button';
+        button.textContent=`${option} ${data.name}`;
+        button.setAttribute('aria-current',String(option===key));
+        button.addEventListener('click',()=>{location.hash=option;});
+        other.append(button);
+      }
+      quiz.hidden=true; result.hidden=false; document.title=`${item.title}｜柔柔`;
+      if (focus) { window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}); heading.focus({preventScroll:true}); }
+    }
+    document.querySelectorAll('.choice').forEach(button=>button.addEventListener('click',()=>{location.hash=button.dataset.choice;}));
+    document.getElementById('back').addEventListener('click',()=>{history.pushState(null,'',location.pathname+location.search); show(null); document.querySelector('.choice').focus({preventScroll:true});});
+    window.addEventListener('hashchange',()=>show(location.hash.slice(1).toUpperCase()));
+    show(location.hash.slice(1).toUpperCase(),false);
+  </script>
+</body>
+</html>
