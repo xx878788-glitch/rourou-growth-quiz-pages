@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#243f59">
+  <meta name="description" content="先看圖三秒，選擇第一眼注意到的物件，看看你累的時候，最需要哪一種陪伴。柔柔的趣味自我探索測驗。">
+  <title>看看你累的時候最需要哪一種陪伴｜柔柔</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23243f59'/%3E%3Cpath d='M16 25C7 19 5 14 9 10c3-3 6-1 7 1 2-3 5-4 8-1 4 4 1 9-8 15Z' fill='%23ead4ad'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <main>
+    <section id="quiz-view" class="quiz-view" aria-labelledby="quiz-title">
+      <header class="intro">
+        <p class="brand">柔柔的日常小測驗</p>
+        <h1 id="quiz-title">看看你累的時候<br>最需要哪一種陪伴</h1>
+        <p class="instruction">先看圖三秒 不用分析，選擇第一眼注意到的物件</p>
+      </header>
+      <div class="quiz-layout">
+        <figure class="scene">
+          <img src="./assets/companionship.webp" width="1254" height="1254" alt="柔和素描的居家場景，窗邊有沙發和藍色抱枕，桌上放著冒煙的熱茶與畫著愛心的小卡" fetchpriority="high">
+        </figure>
+        <div class="choice-area">
+          <h2 class="choice-title">你第一眼注意到的是</h2>
+          <div class="choices" role="group" aria-label="選擇第一眼注意到的物件">
+            <button type="button" data-choice="A" class="choice"><span class="letter">A</span><span>窗戶</span></button>
+            <button type="button" data-choice="B" class="choice"><span class="letter">B</span><span>抱枕</span></button>
+            <button type="button" data-choice="C" class="choice"><span class="letter">C</span><span>熱茶</span></button>
+            <button type="button" data-choice="D" class="choice"><span class="letter">D</span><span>小卡</span></button>
+          </div>
+          <p class="choice-note">跟著直覺選就好，每個選擇都沒有好壞</p>
+        </div>
+      </div>
+      <noscript><p class="notice">請開啟瀏覽器的 JavaScript，才能查看你的解析</p></noscript>
+    </section>
+    <section id="result-view" class="result-view" aria-labelledby="result-title" hidden>
+      <p class="brand">柔柔的日常小測驗</p>
+      <p id="result-choice" class="result-choice"></p>
+      <h1 id="result-title" tabindex="-1"></h1>
+      <p id="result-lead" class="result-lead"></p>
+      <div id="result-body" class="result-body"></div>
+      <button id="reset" type="button" class="reset">重新看圖</button>
+    </section>
+    <footer>
+      <p class="signature">柔柔 陪你慢慢認識自己</p>
+    </footer>
+  </main>
+</body>
+</html>

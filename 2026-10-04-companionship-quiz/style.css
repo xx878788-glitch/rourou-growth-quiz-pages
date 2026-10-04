@@ -1,0 +1,62 @@
+:root{
+  color-scheme:light;
+  --paper:#faf6ee;--ink:#283d50;--muted:#596675;--blue:#243f59;
+  --line:#d7dbdc;--gold:#d9b981;--soft-blue:#e9eff3;
+  font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-size:1rem;line-height:1.75}
+button{font:inherit;cursor:pointer;touch-action:manipulation}
+button:focus-visible{outline:3px solid #9b6f32;outline-offset:5px}
+[hidden]{display:none!important}
+main{max-width:1100px;margin:auto;padding:20px 28px 24px;text-align:center}
+.brand{font-size:.875rem;letter-spacing:.04em;color:var(--blue);margin:0 0 8px}
+h1{font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;font-weight:500;line-height:1.3;letter-spacing:.01em;font-size:clamp(1.7rem,3.5vw,2.4rem);margin:0}
+.instruction{max-width:600px;margin:10px auto 17px;font-size:1rem;color:var(--muted);line-height:1.6}
+.quiz-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.8fr);gap:48px;align-items:center;max-width:980px;margin:auto}
+.scene{margin:0;overflow:hidden;border-radius:9px;box-shadow:0 7px 28px #283d5010}
+.scene img{width:100%;height:auto;display:block;aspect-ratio:1/1;object-fit:contain}
+.choice-title{font-size:1.1rem;line-height:1.6;font-weight:500;margin:0 0 15px}
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.choice{min-height:82px;display:flex;gap:12px;justify-content:center;align-items:center;border:1px solid #b7c6d0;border-radius:8px;background:#fffdf8;color:var(--blue);font-size:1.125rem;transition:background .18s,border-color .18s,transform .18s}
+.choice:hover{background:var(--soft-blue);border-color:var(--blue);transform:translateY(-2px)}
+.choice:active{transform:translateY(0)}
+.letter{font-family:Georgia,serif;font-size:1.45rem;line-height:1.1;color:#927249}
+.choice-note{font-size:.875rem;color:var(--muted);margin:12px 0 0}
+footer{padding-top:22px;font-size:.8125rem;line-height:1.6;color:var(--muted)}
+footer p{margin:0}
+.signature{margin-top:0;font-size:.875rem;letter-spacing:.03em;color:var(--blue)}
+.result-view{max-width:700px;margin:auto}
+.result-choice{display:inline-block;margin:4px 0 12px;padding:4px 16px;border:1px solid #bfcbd3;border-radius:30px;font-size:.875rem;letter-spacing:.02em;background:var(--soft-blue)}
+.result-view h1{font-size:clamp(1.7rem,3.5vw,2.3rem);white-space:pre-line}
+.result-lead{max-width:580px;margin:14px auto 22px;font-size:1rem;line-height:1.75;color:#43586a}
+.result-body{border-top:1px solid var(--line)}
+.result-block{padding:20px 20px;border-bottom:1px solid var(--line)}
+.result-block h2{font-size:1.0625rem;font-weight:600;letter-spacing:.02em;margin:0 0 11px;color:var(--blue)}
+.result-block p{max-width:570px;margin:9px auto;font-size:1rem;line-height:1.8;overflow-wrap:anywhere}
+.result-block.quote{margin:18px 0;padding:20px 22px;background:var(--soft-blue);border:0;border-radius:8px}
+.result-block.quote p{font-family:"Noto Serif TC","Songti TC",serif;font-size:1.0625rem;color:var(--blue);white-space:pre-line}
+.result-block.kind{border:0}
+.result-block.kind h2{color:#8b6836}
+.reset{margin-top:24px;min-height:52px;padding:10px 38px;border:1px solid var(--blue);border-radius:7px;background:var(--blue);color:#fff;font-size:1rem}
+.reset:hover{background:#344f67}
+.notice{margin-top:22px;color:#9a431f}
+@media(max-width:700px){
+  main{padding:15px 20px 22px}
+  .brand{margin-bottom:7px;font-size:.875rem;letter-spacing:.03em}
+  h1{font-size:clamp(1.5rem,6vw,1.8rem);letter-spacing:0}
+  .instruction{margin:9px auto 14px}
+  .quiz-layout{display:block;max-width:450px}
+  .choice-area{margin-top:14px}
+  .choice-title{margin:0 0 9px;font-size:1rem}
+  .choice{min-height:60px}
+  .choices{gap:10px}
+  .choice-note{margin-top:10px}
+  .result-view h1{font-size:1.7rem}
+  .result-choice{margin:2px 0 11px}
+  .result-lead{font-size:1rem;margin:12px auto 18px}
+  .result-block{padding:18px 5px}
+  .result-block p{line-height:1.8}
+  footer{padding-top:21px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
